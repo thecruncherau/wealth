@@ -1,7 +1,8 @@
 # Wealth
 Implementations of Model Wealth Prediction Markets in various languages as shown in https://arxiv.org/pdf/1201.6655.pdf
 
-## An example
+## Examples
+### Julia
 ```julia
 w = Wealth(["a", "b", "c"])
 
