@@ -19,6 +19,10 @@ mutable struct Wealth
             error("parameter `sources` must contain unique values")
         end
 
+        if length(sources) != length(wealths)
+            error("parameters `sources` and `wealths` must be the same length")
+        end
+
         new(sources, wealths)
     end
 end
