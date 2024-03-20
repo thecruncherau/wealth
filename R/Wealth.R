@@ -81,7 +81,7 @@ calculate_market_details <- function(source_predictions_df, wealth_record) {
         stop("sources included in `source_predictions_df` must be present in `wealth_record`")
     }
 
-    source_wealths <- wealth_record$wealth[wealth_record$source == source_predictions_df$source]
+    source_wealths <- wealth_record$wealth[source_predictions_df$source |> sapply(\(x) match(x, wealth_record$source))]
 
     market_probability <- sum(kelly_fractions * source_wealths * source_predictions_df$probability) /
         sum(kelly_fractions * source_wealths)
