@@ -158,7 +158,7 @@ update_wealth <- function(market_details, event_occurred, wealth_record) {
 
         if (market_details$wagering_for_event[ix] == event_occurred) {
             wealth_record$wealth[wealth_record_index] <- wealth_record$wealth[wealth_record_index] + 
-                (portion_staked * wealth) * (1 / market_probability - 1)
+                (portion_staked * wealth) * (1 / (ifelse(event_occurred, market_probability, 1 - market_probability)) - 1)
         } else {
             wealth_record$wealth[wealth_record_index] <- wealth_record$wealth[wealth_record_index] - 
                 (portion_staked * wealth)
