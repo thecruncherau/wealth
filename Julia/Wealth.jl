@@ -99,7 +99,7 @@ function update_source_wealth!(wager::Wager, market_probability::Float64, event_
     source_index = findfirst(isequal(wager.source), wealth_instance.sources)
     
     if event_occurred == wager.wagering_for_event
-        wealth_instance.wealths[source_index] += (wager.portion_of_wealth_to_wager * wager.wealth) * (1 / (event_occurred ? market_probability : 1 - market_probability) - 1)
+        wealth_instance.wealths[source_index] += (wager.portion_of_wealth_to_stake * wager.wealth) * (1 / (event_occurred ? market_probability : 1 - market_probability) - 1)
     else
         wealth_instance.wealths[source_index] -= wager.portion_of_wealth_to_stake * wager.wealth
     end
